@@ -23,4 +23,11 @@ RSpec.describe Dollar do
       expect(product.amount).to eq(15)
     end
   end
+
+  describe '#==' do
+    it 'equals another bill of the same denomination' do
+      expect(Dollar.new(5)).to eq(Dollar.new(5))
+      expect(Dollar.new(5)).not_to eq(Dollar.new(6))
+    end
+  end
 end

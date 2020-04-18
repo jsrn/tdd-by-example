@@ -32,10 +32,16 @@ RSpec.describe Money do
   end
 
   describe '#*' do
-    it 'returns multiple correct produts for the original object' do
+    it 'returns multiple correct products for the original object' do
       five = Money.franc(5)
       expect(Money.franc(10)).to eq(five * 2)
       expect(Money.franc(15)).to eq(five * 3)
+    end
+  end
+
+  describe '#+' do
+    it 'adds 5 + 5 to get 10' do
+      expect(Money.dollar(5) + Money.dollar(5)).to eq(Money.dollar(10))
     end
   end
 end

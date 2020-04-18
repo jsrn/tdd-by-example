@@ -23,6 +23,10 @@ class Money
     Money.new(amount * multiplier, currency)
   end
 
+  def +(addition)
+    Money.new(amount + addition.amount, currency)
+  end
+
   protected
   def amount
     @amount

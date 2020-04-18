@@ -31,11 +31,11 @@ RSpec.describe Money do
     end
   end
 
-  describe '#times' do
+  describe '#*' do
     it 'returns multiple correct produts for the original object' do
       five = Money.franc(5)
-      expect(Money.franc(10)).to eq(five.times(2))
-      expect(Money.franc(15)).to eq(five.times(3))
+      expect(Money.franc(10)).to eq(five * 2)
+      expect(Money.franc(15)).to eq(five * 3)
     end
   end
 end

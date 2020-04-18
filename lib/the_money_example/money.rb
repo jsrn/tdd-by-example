@@ -9,8 +9,9 @@ class Money
 
   attr_reader :currency
 
-  def initialize(amount)
+  def initialize(amount, currency)
     @amount = amount
+    @currency = currency
   end
 
   def ==(object)

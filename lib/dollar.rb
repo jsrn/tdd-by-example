@@ -1,6 +1,4 @@
 class Dollar
-  attr_reader :amount
-
   def initialize(amount)
     @amount = amount
   end
@@ -11,5 +9,10 @@ class Dollar
 
   def ==(object)
     amount == object.amount
+  end
+
+  protected
+  def amount
+    @amount
   end
 end

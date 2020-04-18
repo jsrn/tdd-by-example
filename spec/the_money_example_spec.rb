@@ -9,9 +9,10 @@ RSpec.describe Dollar do
   end
 
   describe '#times' do
-    it 'returns 10 for 5 * 2' do
+    it 'updates the amount to 10 for 5 * 2' do
       dollar = Dollar.new(5)
-      expect(dollar.times(2)).to eq(10)
+      dollar.times(2)
+      expect(dollar.amount).to eq(10)
     end
   end
 end

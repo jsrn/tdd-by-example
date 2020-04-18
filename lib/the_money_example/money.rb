@@ -1,6 +1,7 @@
 class Money
   def ==(object)
-    amount == object.amount
+    self.class == object.class &&
+      amount == object.amount
   end
 
   protected

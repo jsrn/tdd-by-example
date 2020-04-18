@@ -14,17 +14,10 @@ RSpec.describe Money do
   end
 
   describe '#==' do
-    it 'bills are matched based on value' do
+    it 'bills are matched based on value and currency' do
       expect(Money.dollar(5)).to eq(Money.dollar(5))
-      expect(Money.dollar(5)).not_to eq(Money.dollar(6))
-
-      expect(Money.franc(5)).to eq(Money.franc(5))
-      expect(Money.franc(5)).not_to eq(Money.franc(6))
-    end
-
-    it 'bills of different types do not match' do
       expect(Money.dollar(5)).not_to eq(Money.franc(5))
-      expect(Money.dollar(5)).not_to eq(Money.franc(6))
+      expect(Money.dollar(5)).not_to eq(Money.dollar(6))
     end
   end
 

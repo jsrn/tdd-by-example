@@ -27,4 +27,14 @@ RSpec.describe Money do
       expect(Money.dollar(5)).not_to eq(Money.franc(6))
     end
   end
+
+  describe '#currency' do
+    it 'is CHF for francs' do
+      expect(Money.franc(100).currency).to eq('CHF')
+    end
+
+    it 'is USD for dollars' do
+      expect(Money.dollar(100).currency).to eq('USD')
+    end
+  end
 end

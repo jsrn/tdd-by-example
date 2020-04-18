@@ -3,13 +3,13 @@ require './lib/the_money_example/money.rb'
 RSpec.describe Money do
   describe '.dollar' do
     it 'returns a dollar object' do
-      expect(Money.dollar(5)).to be_a(Dollar)
+      expect(Money.dollar(5)).to be_a(Money)
     end
   end
 
   describe '.franc' do
     it 'returns a franc object' do
-      expect(Money.franc(5)).to be_a(Franc)
+      expect(Money.franc(5)).to be_a(Money)
     end
   end
 
@@ -35,6 +35,14 @@ RSpec.describe Money do
 
     it 'is USD for dollars' do
       expect(Money.dollar(100).currency).to eq('USD')
+    end
+  end
+
+  describe '#times' do
+    it 'returns multiple correct produts for the original object' do
+      five = Money.franc(5)
+      expect(Money.franc(10)).to eq(five.times(2))
+      expect(Money.franc(15)).to eq(five.times(3))
     end
   end
 end

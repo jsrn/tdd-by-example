@@ -1,8 +1,9 @@
 require_relative 'money.rb'
 
 class Dollar < Money
-  def currency
-    'USD'
+  def initialize(amount, currency = nil)
+    @currency = currency
+    super(amount)
   end
 
   def times(multiplier)

@@ -10,5 +10,11 @@ RSpec.describe Bank do
       reduced = bank.reduce(sum, 'USD')
       expect(Money.dollar(10)).to eq(reduced)
     end
+
+    it 'reduces money to itself' do
+      five = Money.dollar(5)
+      bank = Bank.new
+      expect(five).to eq(bank.reduce(five, 'USD'))
+    end
   end
 end

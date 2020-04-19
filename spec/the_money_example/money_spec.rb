@@ -40,8 +40,10 @@ RSpec.describe Money do
   end
 
   describe '#+' do
-    it 'adds 5 + 5 to get 10' do
-      expect(Money.dollar(5) + Money.dollar(5)).to eq(Money.dollar(10))
+    it 'returns a sum' do
+      five = Money.dollar(5)
+      sum = five + five
+      expect(sum.augend).to eq(five)
     end
   end
 end

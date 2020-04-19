@@ -1,3 +1,5 @@
+require_relative './sum.rb'
+
 class Money
   def self.dollar(amount)
     Money.new(amount, 'USD')
@@ -24,10 +26,10 @@ class Money
   end
 
   def +(addition)
-    Money.new(amount + addition.amount, currency)
+    Sum.new(self, addition)
   end
 
-  protected
+  # protected
   def amount
     @amount
   end

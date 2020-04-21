@@ -15,4 +15,8 @@ class Sum
   def +(addend)
     Sum.new(self, addend)
   end
+
+  def *(multiplier)
+    Sum.new(@augend * multiplier, @addend * multiplier)
+  end
 end

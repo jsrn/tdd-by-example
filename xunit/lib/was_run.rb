@@ -3,7 +3,6 @@ require_relative 'test_case.rb'
 class WasRun < TestCase
   def initialize(method)
     super(method)
-    @was_run = false
   end
 
   def test_method
@@ -11,6 +10,7 @@ class WasRun < TestCase
   end
 
   def set_up
+    @was_run = false
     @was_set_up = true
   end
 

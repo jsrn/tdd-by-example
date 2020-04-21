@@ -1,10 +1,10 @@
 class TestCase
   def initialize(name)
     @name = name
-    set_up
   end
 
   def run
+    set_up
     send(@name)
   end
 

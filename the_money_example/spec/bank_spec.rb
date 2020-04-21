@@ -1,4 +1,4 @@
-require './lib/the_money_example/bank.rb'
+require './lib/bank.rb'
 
 RSpec.describe Bank do
   describe '#reduce' do

@@ -1,4 +1,4 @@
-require './lib/the_money_example/money.rb'
+require './lib/money.rb'
 
 RSpec.describe Money do
   describe '.dollar' do

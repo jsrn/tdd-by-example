@@ -1,4 +1,4 @@
-require './lib/the_money_example/sum.rb'
+require './lib/sum.rb'
 
 RSpec.describe Sum do
   describe '#+' do

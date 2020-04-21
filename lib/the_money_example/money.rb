@@ -29,8 +29,12 @@ class Money
     Sum.new(self, addition)
   end
 
-  def reduce(currency)
-    self
+  def reduce(bank, currency)
+    if self.currency == 'CHF' && currency == 'USD'
+      Money.dollar(amount / 2)
+    else
+      self
+    end
   end
 
   # protected

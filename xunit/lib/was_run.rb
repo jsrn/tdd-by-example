@@ -1,11 +1,9 @@
-class WasRun
-  def initialize(method)
-    @method = method
-    @was_run = false
-  end
+require_relative 'test_case.rb'
 
-  def run
-    send @method
+class WasRun < TestCase
+  def initialize(method)
+    super(method)
+    @was_run = false
   end
 
   def test_method

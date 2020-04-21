@@ -10,7 +10,15 @@ class WasRun < TestCase
     @was_run = true
   end
 
+  def set_up
+    @was_set_up = true
+  end
+
   def was_run?
     @was_run
+  end
+
+  def was_set_up?
+    @was_set_up
   end
 end

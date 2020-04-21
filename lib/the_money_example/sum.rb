@@ -11,4 +11,8 @@ class Sum
     reduced_addend = bank.reduce(addend, currency)
     Money.new(reduced_augend.amount + reduced_addend.amount, currency)
   end
+
+  def +(addend)
+    Sum.new(self, addend)
+  end
 end

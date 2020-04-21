@@ -23,6 +23,18 @@ RSpec.describe Bank do
 
       expect(bank.reduce(Money.franc(2), 'USD')).to eq(Money.dollar(1))
     end
+
+    it 'reduces mixed currencies' do
+      bucks = Money.dollar(5)
+      francs = Money.franc(10)
+
+      bank = Bank.new
+      bank.add_rate('CHF', 'USD', 2)
+
+      result = bank.reduce(bucks + francs, 'USD')
+
+      expect(result).to eq(Money.dollar(10))
+    end
   end
 
   describe '#rate' do

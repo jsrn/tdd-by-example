@@ -13,6 +13,10 @@ class WasRun < TestCase
     log_method_call(@name)
   end
 
+  def test_broken_method
+    raise StandardError.new, 'this is broken'
+  end
+
   def tear_down
     log_method_call(:tear_down)
   end

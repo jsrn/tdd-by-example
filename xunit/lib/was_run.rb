@@ -5,19 +5,15 @@ class WasRun < TestCase
     super(method)
   end
 
-  def test_method
-    log_method_call(@name)
-  end
-
   def set_up
     log_method_call(:set_up)
   end
 
-  def was_run?
-    method_called?(@name)
+  def test_method
+    log_method_call(@name)
   end
 
-  def was_set_up?
-    method_called?(:set_up)
+  def tear_down
+    log_method_call(:tear_down)
   end
 end

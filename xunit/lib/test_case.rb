@@ -9,9 +9,11 @@ class TestCase
   def run
     set_up
     send(@name)
+    tear_down
   end
 
   def set_up; end
+  def tear_down; end
 
   def assert(condition)
     print condition ? '.' : 'x'

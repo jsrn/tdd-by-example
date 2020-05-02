@@ -8,17 +8,17 @@ class TestTestCase < TestCase
 
   def test_running
     @test.run
-    assert @test.was_run?
+    assert @test.method_calls.include?(:test_method)
   end
 
   def test_set_up
     @test.run
-    assert @test.was_set_up?
+    assert @test.method_calls.include?(:set_up)
   end
 
   def test_template_method
     @test.run
-    assert @test.method_calls == %i[set_up test_method]
+    assert @test.method_calls == %i[set_up test_method tear_down]
   end
 end
 

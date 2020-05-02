@@ -6,19 +6,18 @@ class WasRun < TestCase
   end
 
   def test_method
-    @was_run = true
+    log_method_call(@name)
   end
 
   def set_up
-    @was_run = false
-    @was_set_up = true
+    log_method_call(:set_up)
   end
 
   def was_run?
-    @was_run
+    method_called?(@name)
   end
 
   def was_set_up?
-    @was_set_up
+    method_called?(:set_up)
   end
 end

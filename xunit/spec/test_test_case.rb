@@ -15,8 +15,14 @@ class TestTestCase < TestCase
     @test.run
     assert @test.was_set_up?
   end
+
+  def test_template_method
+    @test.run
+    assert @test.method_calls == %i[set_up test_method]
+  end
 end
 
 TestTestCase.new(:test_running).run
 TestTestCase.new(:test_set_up).run
+TestTestCase.new(:test_template_method).run
 puts ''

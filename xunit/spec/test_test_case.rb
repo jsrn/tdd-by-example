@@ -1,5 +1,6 @@
 require './lib/test_case.rb'
 require './lib/was_run.rb'
+require './lib/test_suite.rb'
 
 class TestTestCase < TestCase
   def set_up
@@ -31,11 +32,27 @@ class TestTestCase < TestCase
     result = broken_test.run
     assert result.summary == '1 run, 1 failed'
   end
+
+  def test_test_suite
+    results = TestResult.new
+
+    suite = TestSuite.new
+    suite.add(TestTestCase.new(:test_running))
+    suite.add(TestTestCase.new(:test_set_up))
+    suite.run(results)
+
+    assert results.summary == '2 run, 0 failed'
+  end
 end
 
-TestTestCase.new(:test_running).run
-TestTestCase.new(:test_set_up).run
-TestTestCase.new(:test_template_method).run
-TestTestCase.new(:test_result).run
-TestTestCase.new(:test_broken_method).run
-puts ''
+suite = TestSuite.new
+suite.add(TestTestCase.new(:test_set_up))
+suite.add(TestTestCase.new(:test_running))
+suite.add(TestTestCase.new(:test_template_method))
+suite.add(TestTestCase.new(:test_result))
+suite.add(TestTestCase.new(:test_broken_method))
+suite.add(TestTestCase.new(:test_test_suite))
+
+result = TestResult.new
+suite.run(result)
+puts result.summary

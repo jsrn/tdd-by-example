@@ -8,19 +8,20 @@ class TestCase
     @method_calls = []
   end
 
-  def run
-    result = TestResult.new
+  def run(result = TestResult.new)
     result.test_started
     set_up
 
     begin
       send(@name)
     rescue StandardError => e
+      puts "Exception raised in test: #{@name}"
+      puts e.to_s
       result.test_failed
-      print 'x'
     end
 
     tear_down
+    print '.'
     result
   end
 
@@ -28,11 +29,11 @@ class TestCase
   def tear_down; end
 
   def assert(condition)
-    print condition ? '.' : 'x'
+    test_failed unless condition
   end
 
   def refute(condition)
-    print condition ? 'x' : '.'
+    test_failed if condition
   end
 
   def log_method_call(method_name)

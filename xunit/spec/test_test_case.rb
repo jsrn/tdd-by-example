@@ -26,16 +26,16 @@ class TestTestCase < TestCase
     assert result.summary == '1 run, 0 failed'
   end
 
-  # def test_broken_method
-  #   test = WasRun.new(:test_broken_method)
-  #   result = test.run
-  #   assert result.summary == '1 run, 1 failed'
-  # end
+  def test_broken_method
+    broken_test = WasRun.new(:test_broken_method)
+    result = broken_test.run
+    assert result.summary == '1 run, 1 failed'
+  end
 end
 
 TestTestCase.new(:test_running).run
 TestTestCase.new(:test_set_up).run
 TestTestCase.new(:test_template_method).run
 TestTestCase.new(:test_result).run
-# TestTestCase.new(:test_broken_method).run
+TestTestCase.new(:test_broken_method).run
 puts ''

@@ -1,9 +1,15 @@
+# The class that we're trying to test. We want to ensure that when passed an
+# object which adheres to the loggable interface, the `write_to_log` method
+# adds a log line to the logger object.
 class SomeClass
   def write_to_log(logger, log_line)
     logger.add(log_line) 
   end
 end
 
+# This defines the behaviour of the logger object, extracted to a module for
+# convenience. In a real example, we might not be so lucky to have everything
+# wrapped into a little bundle for us, but hey.
 module Loggable
   attr_reader :lines
 
@@ -17,6 +23,11 @@ class Logger
   include Loggable  
 end
 
+# In cases where we want to pass object A to object B, and test that object B
+# performs certain operations on A, we might typically create a mock A that
+# adheres to the interface that B is expecting. Using the self-shunt pattern, we
+# can make our test class itself that object by defining or intheriting the
+# behaviour of a typical A, and then passing the test itself to B.
 RSpec.describe SomeClass do
   include Loggable
 
